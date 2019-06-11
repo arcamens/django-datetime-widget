@@ -250,16 +250,15 @@ class PickerWidgetMixin(object):
         )
 
     def _media(self):
-
-        js = ["js/bootstrap-datetimepicker.js"]
+        js = ["datetimewidget/js/bootstrap-datetimepicker.js"]
 
         language = self.options.get('language', 'en')
         if language != 'en':
-            js.append("js/locales/bootstrap-datetimepicker.%s.js" % language)
+            js.append("datetimewidget/js/locales/bootstrap-datetimepicker.%s.js" % language)
 
         return widgets.Media(
             css={
-                'all': ('css/datetimepicker.css',)
+                'all': ('datetimewidget/css/datetimepicker.css',)
                 },
             js=js
             )
@@ -330,4 +329,5 @@ class TimeWidget(PickerWidgetMixin, TimeInput):
         options['format'] = options.get('format', 'hh:ii')
 
         super(TimeWidget, self).__init__(attrs, options, usel10n, bootstrap_version)
+
 
